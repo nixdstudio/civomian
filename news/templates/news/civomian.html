@@ -1,0 +1,51 @@
+
+{% extends 'news/base.html' %}
+{% load static %}
+
+{% block title %}The Pareta{% endblock title %}
+
+{% block Left %}
+{% for d in data %}
+    <div  class="card" style="padding: 5px;">
+        {% if d.image %}
+        <img onmouseover="colorful(this)" onmouseleave="bw(this)" style="width: 100%;" src="{{d.image.url}}" alt="image">
+        {% endif %}
+
+        <h3>{{d.heading}}</h3>
+        <p>{{d.content}}</p>
+    </div>
+{% endfor %}
+
+{% endblock Left %}
+
+{% block Right %}
+<div class="midcolumn">
+    {% for dm in datam %}
+        {% if forloop.counter|divisibleby:2 %}
+        {% else %}
+            <div class="card" style="padding: 5px;">
+                {% if dm.image %}
+                    <img onmouseover="colorful(this)" onmouseleave="bw(this)" style="width: 100%;" src="{{dm.image.url}}" alt="image">
+                {% endif %}
+                <h3>{{dm.heading}}</h3>
+                <p>{{dm.content}}</p>
+            </div>
+                
+        {% endif %}
+    {% endfor %}
+</div>
+<div class="rightcolumn">
+    {% for dm in datam %}
+        {% if forloop.counter|divisibleby:2 %}
+            <div class="card" style="padding: 5px;">
+                {% if dm.image %}
+                    <img onmouseover="colorful(this)" onmouseleave="bw(this)" style="width: 100%;" src="{{dm.image.url}}" alt="image">
+                {% endif %}
+                <h3>{{dm.heading}}</h3>
+                <p>{{dm.content}}</p>
+            </div>        
+        {% endif %}
+    {% endfor %}
+</div>
+
+{% endblock Right %}

@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'news/css/style.css' %}">
+    <title>{% block title %}Civomian{% endblock title %}</title>
+    <link rel = "icon" href = "{% static 'news/images/titlelogo.png' %}" type = "image/x-icon">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="quote">
+                "this is the quote osfsfsd <br> sdfsdfsdff the day"
+            </div>
+           <div>The Pareta'    </div> 
+           <div class="est">Est. 2022</div> 
+           <div id="date" class="date">
+
+           </div>
+        </div>
+        <div class="body">
+            <div class="leftsec">
+                {% block Left %}Left Sec{% endblock Left %}
+            </div>
+            <div class="rightsec">
+                {% block Right %}Right Sec{% endblock Right %}
+            </div>
+        </div>
+        <div class="footer">
+            A Private Platform
+        </div>
+    </div>
+    
+<script>
+    date = new Date().toLocaleDateString();
+    document.getElementById('date').innerHTML = date
+
+    function colorful(x){
+        x.style.filter = "grayscale(0%)";
+    }
+
+    function bw(x){
+        x.style.filter = "grayscale(100%)";
+    }
+</script>
+</body>
+</html>
